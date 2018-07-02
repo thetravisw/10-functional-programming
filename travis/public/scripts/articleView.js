@@ -80,7 +80,7 @@ var app = app || {};
         $(this).parent().find('.article-body *:nth-of-type(n+2)').hide();
       }
     });
-  };
+  }; 
 
   articleView.initNewArticlePage = () => {
     $('.tab-content').show();

@@ -39,7 +39,8 @@ app.post('/articles', (request, response) => {
       if (err) console.error(err)
       queryTwo()
     }
-  )
+  )  
+
 
   function queryTwo() {
     let SQL = `SELECT author_id FROM authors WHERE author=$1`;
