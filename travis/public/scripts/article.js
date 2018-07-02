@@ -49,9 +49,13 @@ var app = app || {};
 
   Article.numWordsAll = Article.all.map((data) => data.body.split(" ")).reduce((bull, shit) => bull.concat(shit)).length;
 
-  // TODO  DONE(ish).  (I used .filter instead of .reduce.  Seemed like a better choice, and was def. more intuitive): Chain together a .map() and a .reduce() call to produce an array of unique author names. You will probably need to use the optional accumulator argument in your reduce call.
+  // TODO  DONE
+  
+  Article.allAuthors = [];
 
-  Article.allAuthors = Article.all.map((data) => data.name).filter((name, index, arr)=>arr.indexOf(name) === index)
+  Article.all.map((data) => data.name).reduce((acc, val) => !Article.allAuthors.includes(val) ? empty.push(val) : "")
+
+
 
   Article.numWordsByAuthor = () => {
     let words = Article.allAuthors.map((name) => Article.all.filter((index) => index.name === name).map((data) => data.body.split(" ")).reduce((bull, shit) => bull.concat(shit)).length)
